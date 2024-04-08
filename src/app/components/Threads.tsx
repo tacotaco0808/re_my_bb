@@ -1,4 +1,5 @@
 'use client'
+import styles from './Threads.module.css'
 import { fetchThreads } from '../components/method/fetchMethods'
 import { useEffect, useState } from 'react'
 type Threads = {
@@ -20,7 +21,7 @@ function Threads() {
   //描画
   return (
     <>
-      <ul>
+      <ul className={styles.ul}>
         {loading ? ( //loadingがtrue:falseそれぞれの際の表示
           <p>loading...</p>
         ) : (
