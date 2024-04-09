@@ -15,7 +15,7 @@ export const fetchThreads = async (): Promise<Threads[]> => {
   return threads
 }
 // スレッド一覧に新しいスレッドを追加:POST
-export const fetchThreadsPost = async (titleString: string) => {
+export const fetchThreadsPost = async (titleString: string): Promise<Threads> => {
   const bodyData = {
     title: titleString,
   }

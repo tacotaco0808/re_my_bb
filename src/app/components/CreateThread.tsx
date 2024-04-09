@@ -1,15 +1,15 @@
 'use client'
 import { fetchThreadsPost } from '@/app/components/method/fetchMethods'
+import { useState } from 'react'
 function CreateThread() {
-  function handleClick() {
-    const string: string = 'test2' //スレッドのタイトル
-    fetchThreadsPost(string)
-      .catch(error => console.error(error))
-      .then(() => console.log('test'))
+  const [inputText, setInputText] = useState('') //入力されたスレッドのタイトル名
+  function createNewThread() {
+    fetchThreadsPost(inputText).then(newThread => console.log('ThreadID:' + newThread.id))
   }
   return (
     <>
-      <button onClick={handleClick}>スレッド作成</button>
+      <input type="text" name="newThreadTitle" placeholder="スレッドタイトル" onChange={e => setInputText(e.target.value)} />
+      <button onClick={createNewThread}>スレッド作成</button>
     </>
   )
 }
