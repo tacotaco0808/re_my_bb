@@ -8,13 +8,13 @@ type Posts = {
   id: string
   post: string
 }
-//スレッド一覧取得
+//スレッド一覧取得:GET
 export const fetchThreads = async (): Promise<Threads[]> => {
   const res = await fetch('https://railway.bulletinboard.techtrain.dev/threads')
   const threads = await res.json()
   return threads
 }
-// スレッド一覧に新しいスレッドを追加
+// スレッド一覧に新しいスレッドを追加:POST
 export const fetchThreadsPost = async (titleString: string) => {
   const bodyData = {
     title: titleString,
