@@ -15,13 +15,17 @@ export const fetchThreads = async (): Promise<Threads[]> => {
   return threads
 }
 // スレッド一覧に新しいスレッドを追加
-export const fetchThreadsPost = async () => {
-  const body = {
-    title: 'title',
+export const fetchThreadsPost = async (titleString: string) => {
+  const bodyData = {
+    title: titleString,
   }
-  const res = await fetch('https://railway.bulletinboard.techtrain.dev/threads', { method: 'POST', body: JSON.stringify(body) })
-  const threads = await res.json()
-  return
+  const url = 'https://railway.bulletinboard.techtrain.dev/threads'
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(bodyData),
+  }).then(res => res.json())
+  return res
 }
 // さきのやつ
 export const fetchPosts = async (): Promise<Posts[]> => {

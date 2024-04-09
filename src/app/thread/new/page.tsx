@@ -1,10 +1,12 @@
 import Header from '@/app/components/Header'
-import { fetchThreadsPost } from '@/app/components/method/fetchMethods'
+import CreateThread from '@/app/components/CreateThread'
 export default function New() {
   return (
     <>
       <Header />
-      <button onClick={fetchThreadsPost}>スレッドを作成</button>
+      <main>
+        <CreateThread />
+      </main>
     </>
   )
 }
