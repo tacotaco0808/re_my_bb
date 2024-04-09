@@ -2,6 +2,7 @@
 import styles from './Threads.module.css'
 import { fetchThreads } from '../components/method/fetchMethods'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 type Threads = {
   id: string
   title: string
@@ -25,8 +26,16 @@ function Threads() {
         {loading ? ( //loadingがtrue:falseそれぞれの際の表示
           <p>loading...</p>
         ) : (
-          threads.map(thread => {
-            return <li key={thread.id}>{thread.title}</li>
+          threads.map((thread, index) => {
+            return (
+              <>
+                <li key={index}>
+                  <Link key={thread.id} href={'/thread/' + thread.id}>
+                    {thread.title}
+                  </Link>
+                </li>
+              </>
+            )
           })
         )}
       </ul>

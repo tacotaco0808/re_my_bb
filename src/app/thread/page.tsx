@@ -1,3 +1,3 @@
-export default function thread() {
+export default function Thread() {
   return <>test:thread</>
 }
