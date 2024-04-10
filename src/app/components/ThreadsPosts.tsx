@@ -3,10 +3,6 @@ import styles from './ThreadsPosts.module.css'
 import { useEffect, useState } from 'react'
 import { fetchPosts, fetchPostsPost } from './method/fetchMethods'
 //threadの中のポストまで定義
-type ThreadPosts = {
-  threadId: string
-  posts: Posts[]
-}
 type Posts = {
   id: string
   post: string
@@ -17,14 +13,14 @@ function isArrayNotEmpty(array: any[]): boolean {
   return array.length > 0
 }
 //Threas内のポスト一覧を表示
-function ThreadsPosts(props: { threadId: string }) {
+function ThreadsPosts({ threadId, threadReRender }: any) {
   //変数
   const [threadsPosts, setThreadsPosts] = useState<Posts[]>([]) //スレッド内の複数ポストを取得 fetchした後のthread -> postsの部分
   const [loading, setLoading] = useState(true)
 
   //初回マウント時
   useEffect(() => {
-    fetchPosts(props.threadId)
+    fetchPosts(threadId)
       .then(threads => {
         //スレッド内にポストがあるか
         if (isArrayNotEmpty(threads.posts)) {
@@ -35,7 +31,7 @@ function ThreadsPosts(props: { threadId: string }) {
         }
       })
       .catch(error => console.log(error))
-  }, [props.threadId])
+  }, [threadId, threadReRender])
 
   return (
     <>
