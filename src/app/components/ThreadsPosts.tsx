@@ -19,14 +19,14 @@ function isArrayNotEmpty(array: any[]): boolean {
   return array.length > 0
 }
 //Threas内のポスト一覧を表示
-function ThreadsPosts({ threadId }: { threadId: ThreadId }) {
+function ThreadsPosts(props: { threadId: string }) {
   //変数
   const [threadsPosts, setThreadsPosts] = useState<Posts[]>([]) //スレッド内の複数ポストを取得 fetchした後のthread -> postsの部分
   const [loading, setLoading] = useState(true)
 
   //初回マウント時
   useEffect(() => {
-    fetchPosts(threadId.id)
+    fetchPosts(props.threadId)
       .then(threads => {
         //スレッド内にポストがあるか
         if (isArrayNotEmpty(threads.posts)) {
@@ -37,7 +37,7 @@ function ThreadsPosts({ threadId }: { threadId: ThreadId }) {
         }
       })
       .catch(error => console.log(error))
-  }, [threadId])
+  }, [props.threadId])
 
   return (
     <>

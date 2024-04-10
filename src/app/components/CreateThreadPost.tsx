@@ -5,11 +5,11 @@ import { fetchPostsPost } from './method/fetchMethods'
 type ThreadId = {
   id: string
 }
-function CreateThreadPost({ threadId }: { threadId: ThreadId }) {
+function CreateThreadPost(props: { threadId: string }) {
   const [inputText, setInputText] = useState('')
   function handleClick() {
     const postText = inputText
-    fetchPostsPost(postText, threadId.id).then(res => console.log(res))
+    fetchPostsPost(postText, props.threadId).then(res => console.log(res))
   }
   return (
     <>
