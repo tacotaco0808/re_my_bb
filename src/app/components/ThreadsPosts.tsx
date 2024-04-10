@@ -11,6 +11,10 @@ type Posts = {
   id: string
   post: string
 }
+//配列が空でないか判定
+function isArrayNotEmpty(array: any[]): boolean {
+  return array.length > 0
+}
 //Threas内のポスト一覧を表示
 function ThreadsPosts() {
   //変数
@@ -20,9 +24,14 @@ function ThreadsPosts() {
   useEffect(() => {
     fetchPosts()
       .then(threads => {
-        setThreadsPosts(threads.posts)
-        console.log(threads.posts[4].post)
-        setLoading(false)
+        if (isArrayNotEmpty(threads.posts)) {
+          setThreadsPosts(threads.posts)
+          console.log(threads.posts[4].post)
+          setLoading(false)
+          console.log('スレッド内にポストが存在します')
+        } else {
+          console.log('empty')
+        }
       })
       .catch(error => console.log(error))
   }, [])
@@ -30,7 +39,7 @@ function ThreadsPosts() {
     <>
       <ul>
         {loading ? ( //loadingがtrue:falseそれぞれの際の表示
-          <p>loading...</p>
+          <p>スレッドに投稿がありません。</p>
         ) : (
           threadsPosts.map((thread, index) => {
             return (
