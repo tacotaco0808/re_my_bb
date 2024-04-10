@@ -1,7 +1,7 @@
 'use client'
 import styles from './ThreadsPosts.module.css'
 import { useEffect, useState } from 'react'
-import { fetchPosts } from './method/fetchMethods'
+import { fetchPosts, fetchPostsPost } from './method/fetchMethods'
 //threadの中のポストまで定義
 type ThreadPosts = {
   threadId: string
@@ -23,6 +23,7 @@ function ThreadsPosts({ threadId }: { threadId: ThreadId }) {
   //変数
   const [threadsPosts, setThreadsPosts] = useState<Posts[]>([]) //スレッド内の複数ポストを取得 fetchした後のthread -> postsの部分
   const [loading, setLoading] = useState(true)
+
   //初回マウント時
   useEffect(() => {
     fetchPosts(threadId.id)
@@ -37,6 +38,7 @@ function ThreadsPosts({ threadId }: { threadId: ThreadId }) {
       })
       .catch(error => console.log(error))
   }, [threadId])
+
   return (
     <>
       <ul className={styles.ul}>
