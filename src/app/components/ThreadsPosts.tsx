@@ -44,9 +44,7 @@ function ThreadsPosts({ threadId }: { threadId: ThreadId }) {
           <p>スレッドに投稿がありません。</p>
         ) : (
           threadsPosts.map((thread, index) => {
-            return (
-                <li key={index}>{thread.post}</li>
-            )
+            return <li key={index}>{thread.post}</li>
           })
         )}
       </ul>

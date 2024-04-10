@@ -25,13 +25,13 @@ function Threads() {
         {loading ? ( //loadingがtrue:falseそれぞれの際の表示
           <p>loading...</p>
         ) : (
-          threads.map((thread) => {
+          threads.map(thread => {
             return (
-                <li key={thread.id}>
-                  <Link key={thread.id} href={'/thread/' + thread.id}>
-                    {thread.title}
-                  </Link>
-                </li>
+              <li key={thread.id}>
+                <Link key={thread.id} href={'/thread/' + thread.id}>
+                  {thread.title}
+                </Link>
+              </li>
             )
           })
         )}
