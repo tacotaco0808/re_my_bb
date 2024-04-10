@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from 'react'
 import { fetchPostsPost } from './method/fetchMethods'
-
-function CreateThreadPost() {
+type ThreadId = {
+  id: string
+}
+function CreateThreadPost({ threadId }: { threadId: ThreadId }) {
   const [inputText, setInputText] = useState('')
   function handleClick() {
     const postText = inputText
-    fetchPostsPost(postText)
+    fetchPostsPost(postText, threadId.id).then(res => console.log(res))
   }
   return (
     <>

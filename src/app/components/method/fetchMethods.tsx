@@ -46,8 +46,8 @@ export const fetchPosts = async (id: string): Promise<ThreadPosts> => {
   return posts
 }
 //スレッド内のポスト一覧に新規投稿をする:POSTリクエスト
-export const fetchPostsPost = async (postString: string) => {
-  const id = 'f147e400-7dc3-494e-b668-a068f84cc683'
+export const fetchPostsPost = async (postString: string, idString: string) => {
+  const id = idString
   const bodyData = {
     post: postString,
   }

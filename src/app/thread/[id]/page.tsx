@@ -9,7 +9,7 @@ export default function Thread_Id({ params }: { params: { id: string } }) {
       <Header />
       <ThreadsPosts threadId={params} />
       <div>PostID: {params.id}</div>
-      <CreateThreadPost />
+      <CreateThreadPost threadId={params} />
     </>
   )
 }
