@@ -45,9 +45,7 @@ function ThreadsPosts({ threadId }: { threadId: ThreadId }) {
         ) : (
           threadsPosts.map((thread, index) => {
             return (
-              <>
                 <li key={index}>{thread.post}</li>
-              </>
             )
           })
         )}
