@@ -15,7 +15,6 @@ function Threads() {
   useEffect(() => {
     fetchThreads().then(threads => {
       setThreads(threads)
-      console.log(threads)
       setLoading(false)
     })
   }, [])

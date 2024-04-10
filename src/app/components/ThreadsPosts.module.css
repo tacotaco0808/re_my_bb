@@ -1,0 +1,6 @@
+@charset "utf-8";
+.ul {
+  background-color: aqua;
+  list-style: none;
+  padding: 0;
+}

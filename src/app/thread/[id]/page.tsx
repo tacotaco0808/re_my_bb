@@ -5,7 +5,7 @@ export default function Thread_Id({ params }: { params: { id: string } }) {
   return (
     <>
       <Header />
-      <ThreadsPosts />
+      <ThreadsPosts threadId={params} />
       <div>PostID: {params.id}</div>
     </>
   )

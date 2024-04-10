@@ -36,10 +36,11 @@ export const fetchThreadsPost = async (titleString: string): Promise<Threads> =>
   return res
 }
 // さきのやつ
-export const fetchPosts = async (): Promise<ThreadPosts> => {
+export const fetchPosts = async (id: string): Promise<ThreadPosts> => {
   /*投稿が入っているスレッド:7e11ec6a-ae7e-49ca-a312-85b052f90745 */
   // /b927076a-c89a-495a-9d59-513d676cef9c
-  const res = await fetch(base_url + '/7e11ec6a-ae7e-49ca-a312-85b052f90745' + '/posts')
+
+  const res = await fetch(base_url + '/' + id + '/posts')
   const posts = await res.json()
 
   return posts
