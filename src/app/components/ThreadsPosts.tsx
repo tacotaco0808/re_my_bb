@@ -11,9 +11,7 @@ type Posts = {
   id: string
   post: string
 }
-type ThreadId = {
-  id: string
-}
+
 //配列が空でないか判定
 function isArrayNotEmpty(array: any[]): boolean {
   return array.length > 0

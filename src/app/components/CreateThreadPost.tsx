@@ -2,9 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { fetchPostsPost } from './method/fetchMethods'
-type ThreadId = {
-  id: string
-}
+
 function CreateThreadPost(props: { threadId: string }) {
   const [inputText, setInputText] = useState('')
   function handleClick() {
